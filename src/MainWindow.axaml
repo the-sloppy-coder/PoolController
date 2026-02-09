@@ -1,0 +1,132 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="1024" d:DesignHeight="600"
+        x:Class="PoolController.MainWindow"
+        Title="Pool Controller" Width="1024" Height="600" Icon="/img/logo.png" Loaded="Window_OnLoaded" WindowState="FullScreen">
+        
+    <Window.Background>
+        <ImageBrush Source="/img/bg-img.jpg" Stretch="Fill"></ImageBrush>
+    </Window.Background>
+    
+    <!-- Main Grid -->
+    <Grid ColumnDefinitions="20, *, *, *, 20" RowDefinitions="20,40, 2, 70, 250, *">
+            <!-- Title -->
+            <Label Grid.Column="1" Grid.Row="1" Name="LblTitle" FontWeight="Bold" FontSize="30"
+                   Foreground="Snow" HorizontalContentAlignment="Left" Margin="10, 0,0,0" 
+                   Content="POOL CONTROLLER"/>
+            <Label Grid.Column="3" Grid.Row="1" Name="LblTime" FontWeight="Bold" FontSize="30"
+                   Foreground="GreenYellow" HorizontalContentAlignment="Right" Margin="0,0,70,0"
+                   Content="12:45:56 AM"/>
+            
+            <Separator Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="3" Background="Snow"
+                       Margin="10, 20"/>
+            
+            
+            <!-- Pool Temperature Section -->
+            <Label Grid.Column="1" Grid.Row="3" Foreground="Snow" Content="Pool Temperature" FontSize="30"
+                   HorizontalContentAlignment="Center" Height="50" VerticalAlignment="Top"/>
+            <Border Grid.Column="1" Grid.Row="4" Name="PoolTempBorder" BorderThickness="5" BorderBrush="Silver" CornerRadius="30"
+                    Margin="10, 0" Background="#333446" Opacity="100">
+                <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Opacity="100">
+                    <Label Name="LblPoolTemp" Foreground="Cyan" Content="00.0 °C" FontWeight="Bold" FontSize="70"/>
+                </StackPanel>
+            </Border>
+            
+            <!-- Today's Weather Section -->
+            <Label Grid.Column="2" Grid.Row="3" Foreground="Snow" Content="Today's Weather" FontSize="30"
+                   HorizontalContentAlignment="Center" Height="50" VerticalAlignment="Top"/>
+            <Border Grid.Column="2" Grid.Row="4" BorderThickness="5" BorderBrush="Silver" CornerRadius="30"
+                    Background="#333446" Opacity="100">
+                <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Opacity="100">
+                    <StackPanel.Styles>
+                        <Style Selector="Label">
+                            <Setter Property="Foreground" Value="Snow"/>
+                        </Style>
+                    </StackPanel.Styles>
+                    
+                    <Image Name="ImgWeatherIcon" Source="/img/sun.png" Height="60" Margin="0,0,0,15"/>
+                    
+                    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
+                        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <Label Content="Temperature:" FontWeight="Bold" FontSize="28"/>
+                            <Label Content="Condition:" FontWeight="Bold" FontSize="28"/>
+                            <Label Content="Humidity:" FontWeight="Bold" FontSize="28"/>
+                        </StackPanel>
+                        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <Label Name="LblWeatherTemp" Content="00.0 °C" FontWeight="Bold" FontSize="28"/>
+                            <Label Name="LblWeatherCondition" Content="Skies" FontWeight="Bold" FontSize="28"/>
+                            <Label Name="LblWeatherHumidity" Content="00 %" FontWeight="Bold" FontSize="28"/>
+                        </StackPanel>
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+            
+            <!-- System Status Section -->
+            <Label Grid.Column="3" Grid.Row="3" Foreground="Snow" Content="System Status" FontSize="30"
+                   HorizontalContentAlignment="Center" Height="50" VerticalAlignment="Top"/>
+            <Border Grid.Column="3" Grid.Row="4" BorderThickness="5" BorderBrush="Silver" CornerRadius="30"
+                    Margin="10,0" Background="#333446" Opacity="100">
+                <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="100">
+                    <StackPanel.Styles>
+                        <Style Selector="Label">
+                            <Setter Property="Foreground" Value="Snow"/>
+                        </Style>
+                    </StackPanel.Styles>
+                    
+                    <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Orientation="Horizontal">
+                        <Image Name="ImgPumpOff" Source="/img/pump.png" Height="30" Margin="0,0,15,0"/>
+                        <Image Name="ImgPumpBypass" Source="/img/pump-bypass.png" Height="30" Margin="0,0,15,0" IsVisible="False"/>
+                        <Image Name="ImgPumpOn" Source="/img/pump-on.png" Height="30" Margin="0,0,15,0" IsVisible="False"/>
+                        <Label Name="LblPumpStatus" Content="PUMP OFF" FontWeight="Bold" FontSize="30"/>
+                    </StackPanel>
+                    
+                    <Separator Background="Snow" Margin="0,30"></Separator>
+                    
+                    <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Orientation="Horizontal">
+                        <Image Name="ImgChlorine" Source="/img/chlorine.png" Height="60"/>
+                        <Image Name="ImgChlorineOn" Source="/img/chlorine-on.png" Height="60" IsVisible="False"/>
+                        <Image Name="ImgSand" Source="/img/sand.png" Height="60" Margin="10,0"/>
+                        <Image Name="ImgSandOn" Source="/img/sand-on.png" Height="60" Margin="10,0" IsVisible="False"/>
+                        <Image Name="ImgWarning" Source="/img/warning.png" Height="70"/>
+                        <Image Name="ImgWarningOn" Source="/img/warning-on.png" Height="70" IsVisible="False"/>
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+            
+            <!-- Bottom Button Section -->
+            <StackPanel Grid.Column="1" Grid.Row="5" Grid.ColumnSpan="3" HorizontalAlignment="Center"
+                        VerticalAlignment="Center" Orientation="Horizontal">
+                <StackPanel.Styles>
+                    <Style Selector="Button">
+                        <Setter Property="Background" Value="#94B4C1"/>
+                        <Setter Property="Margin" Value="30, 0"/>
+                        <Setter Property="Height" Value="80"/>
+                        <Setter Property="Width" Value="80"/>
+                        <Setter Property="CornerRadius" Value="15"/>
+                    </Style>
+                    <Style Selector="Button:pointerover ContentPresenter">
+                        <Setter Property="Background" Value="{Binding Background, RelativeSource={RelativeSource Self}}"/>
+                    </Style>
+                </StackPanel.Styles>
+                
+                <Button Name="BtnBypass" Click="BtnBypass_OnClick">
+                    <Image Source="/img/pump.png"/>
+                </Button>
+                <Button Name="BtnSettings" Click="BtnSettings_OnClick">
+                    <Image Source="/img/settings.png"/>
+                </Button>
+                <Button Name="BtnInfo" Click="BtnInfo_OnClick">
+                    <Image Source="/img/info.png"/>
+                </Button>
+                <Button Name="BtnRestart" Click="BtnRestart_OnClick">
+                    <Image Source="/img/restart.png"/>
+                </Button>
+                <Button Name="BtnExit" Click="BtnExit_OnClick">
+                    <Image Source="/img/exit.png"/>
+                </Button>
+            </StackPanel>
+        </Grid>
+</Window>
+

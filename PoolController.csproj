@@ -1,0 +1,66 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <OutputType>WinExe</OutputType>
+        <TargetFramework>net8.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <BuiltInComInteropSupport>true</BuiltInComInteropSupport>
+        <ApplicationManifest>app.manifest</ApplicationManifest>
+        <AvaloniaUseCompiledBindingsByDefault>true</AvaloniaUseCompiledBindingsByDefault>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Avalonia" Version="11.3.0"/>
+        <PackageReference Include="Avalonia.Desktop" Version="11.3.0"/>
+        <PackageReference Include="Avalonia.Themes.Fluent" Version="11.3.0"/>
+        <PackageReference Include="Avalonia.Fonts.Inter" Version="11.3.0"/>
+        <!--Condition below is needed to remove Avalonia.Diagnostics package from build output in Release configuration.-->
+        <PackageReference Include="Avalonia.Diagnostics" Version="11.3.0">
+            <IncludeAssets Condition="'$(Configuration)' != 'Debug'">None</IncludeAssets>
+            <PrivateAssets Condition="'$(Configuration)' != 'Debug'">All</PrivateAssets>
+        </PackageReference>
+        <PackageReference Include="MessageBox.Avalonia" Version="3.2.0" />
+        <PackageReference Include="System.Device.Gpio" Version="4.0.1" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Remove="img\bg-img.jpg" />
+      <AvaloniaResource Include="img\bg-img.jpg" />
+      <None Remove="img\chlorine.png" />
+      <AvaloniaResource Include="img\chlorine.png" />
+      <None Remove="img\chlorine-on.png" />
+      <AvaloniaResource Include="img\chlorine-on.png" />
+      <None Remove="img\exit.png" />
+      <AvaloniaResource Include="img\exit.png" />
+      <None Remove="img\info.png" />
+      <AvaloniaResource Include="img\info.png" />
+      <None Remove="img\logo.png" />
+      <AvaloniaResource Include="img\logo.png" />
+      <None Remove="img\logo1.PNG" />
+      <None Remove="img\pump.png" />
+      <AvaloniaResource Include="img\pump.png" />
+      <None Remove="img\pump-bypass.png" />
+      <AvaloniaResource Include="img\pump-bypass.png" />
+      <None Remove="img\pump-on.png" />
+      <AvaloniaResource Include="img\pump-on.png" />
+      <None Remove="img\restart.png" />
+      <AvaloniaResource Include="img\restart.png" />
+      <None Remove="img\sand.png" />
+      <AvaloniaResource Include="img\sand.png" />
+      <None Remove="img\sand-on.png" />
+      <AvaloniaResource Include="img\sand-on.png" />
+      <None Remove="img\save.png" />
+      <AvaloniaResource Include="img\save.png" />
+      <None Remove="img\settings.png" />
+      <AvaloniaResource Include="img\settings.png" />
+      <None Remove="img\settings2.png" />
+      <AvaloniaResource Include="img\settings2.png" />
+      <None Remove="img\sloppy-logo.png" />
+      <AvaloniaResource Include="img\sloppy-logo.png" />
+      <None Remove="img\sun.png" />
+      <AvaloniaResource Include="img\sun.png" />
+      <None Remove="img\warning.png" />
+      <AvaloniaResource Include="img\warning.png" />
+      <None Remove="img\warning-on.png" />
+      <AvaloniaResource Include="img\warning-on.png" />
+    </ItemGroup>
+</Project>

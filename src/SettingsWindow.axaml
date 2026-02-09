@@ -1,0 +1,95 @@
+﻿<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="1024" d:DesignHeight="600"
+        x:Class="PoolController.SettingsWindow"
+        Title="SettingsWindow" Width="1024" Height="600" Background="#06202B" WindowState="FullScreen" Loaded="Window_OnLoaded">
+        <Window.Styles>
+                <Style Selector="Label">
+                        <Setter Property="Foreground" Value="Snow"/>
+                </Style>
+        </Window.Styles>
+        
+        
+        <!-- Main Grid -->
+        <Grid ColumnDefinitions="20, *, *, 20" RowDefinitions="20, 60, 2, *, *, *, 20">
+                <!-- Title -->
+                <Label Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2" Content="SETTINGS" FontWeight="Bold" 
+                       FontSize="40" HorizontalContentAlignment="Center"/>
+                
+                <Separator Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2" Background="Snow" Margin="0,20,0,50"/>
+                
+                <!-- Pump Timing Section -->
+                <StackPanel Grid.Column="1" Grid.Row="3" HorizontalAlignment="Center">
+                        <StackPanel>
+                                <Label Content="Pool Pump Timing" HorizontalAlignment="Center" FontWeight="Bold" FontSize="40"/>
+                                <Separator Background="Snow" Margin="0,20"/>
+                                <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
+                                        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,0,20,0">
+                                                <Label Content="Pump Start Hour" FontWeight="Bold" FontSize="30" Margin="0,0,0,20"/>
+                                                <Label Content="Pump Stop Hour" FontWeight="Bold" FontSize="30"/>
+                                        </StackPanel>
+                                        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                                                <NumericUpDown Name="SpinPumpStart" Width="130" FontSize="35" Increment="1"
+                                                               Margin="0,0,0,20"/>
+                                                <NumericUpDown Name="SpinPumpStop" Width="130" FontSize="35" Increment="1"/>
+                                        </StackPanel>
+                                </StackPanel>
+                        </StackPanel>
+                </StackPanel>
+                
+                <!-- Weather Temp Section -->
+                <StackPanel Grid.Column="2" Grid.Row="3" HorizontalAlignment="Center" Margin="0,0,0,80">
+                        <Label Content="Weather Temp Trigger" FontWeight="Bold" FontSize="40"
+                               HorizontalAlignment="Center"/>
+                        <Separator Background="Snow" Margin="0,20"/>
+                        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
+                                <NumericUpDown Name="SpinWeatherTemp" Width="130" FontSize="35" Increment="1" 
+                                               ButtonSpinnerLocation="Left" Margin="0,0,15,0"/>
+                                <Label Content="°C" FontWeight="Bold" FontSize="35"/>
+                        </StackPanel>
+                </StackPanel>
+                
+                
+                <!-- Pool Temp section -->
+                <StackPanel Grid.Column="2" Grid.Row="4" HorizontalAlignment="Center">
+                        <Label Content="Swim Ready Temp" FontWeight="Bold" FontSize="40"/>
+                        <Separator Background="Snow" Margin="0,20"/>
+                        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
+                                <NumericUpDown Name="SpinPoolTemp" Width="130" FontSize="35" Increment="1" 
+                                               ButtonSpinnerLocation="Left" Margin="0,0,15,0"/>
+                                <Label Content="°C" FontWeight="Bold" FontSize="35"/>
+                        </StackPanel>
+                </StackPanel>
+                
+                
+                <!-- Button Section -->
+               <StackPanel Grid.Column="1" Grid.Row="4" HorizontalAlignment="Center" VerticalAlignment="Bottom"
+                           Orientation="Horizontal">
+                       <StackPanel.Styles>
+                               <Style Selector="Button">
+                                       <Setter Property="Background" Value="Snow"/>
+                                       <Setter Property="Foreground" Value="Black"/>
+                                       <Setter Property="Margin" Value="30, 0"/>
+                                       <Setter Property="Height" Value="80"/>
+                                       <Setter Property="Width" Value="80"/>
+                                       <Setter Property="CornerRadius" Value="15"/>
+                               </Style>
+                               <Style Selector="Button:pointerover ContentPresenter">
+                                       <Setter Property="Background" Value="Snow"/>
+                               </Style>
+                       </StackPanel.Styles>
+                       
+                       <Button Name="BtnSettingsExit" Click="BtnSettingsExit_OnClick">
+                               <Image Source="/img/exit.png"/>
+                       </Button>
+                       <Button Name="BtnSettingsSave" Click="BtnSettingsSave_OnClick">
+                               <Image Source="/img/save.png"/>
+                       </Button>
+                       <Button Name="BtnSettings2" Click="BtnSettings2_OnClick">
+                               <Image Source="/img/settings2.png"/>
+                       </Button>
+               </StackPanel>
+        </Grid>
+</Window>

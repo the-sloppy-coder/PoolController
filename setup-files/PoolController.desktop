@@ -1,0 +1,6 @@
+﻿[Desktop Entry]
+Type=Application
+Name=PoolController
+Exec=bash -c 'cd /home/admin/Desktop/PoolController && ./PoolController'
+Terminal=false
+X-GNOME-Autostart-enabled=true
